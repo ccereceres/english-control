@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="">login</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
     </div>
 </body>
