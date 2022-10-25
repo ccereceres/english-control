@@ -21,12 +21,12 @@ if(isset($_SESSION['email'])){
             <div class="form_contenedor">
                 <div class="form_cuerpo">
                     <h2 class="titulo">Inicia sesion</h2>
-                    <form action="validar.php" method="POST" class="formulario">
+                    <form action="inc/validar.php" method="POST" class="formulario">
                         <label for="n-control">Numero de control</label>
-                        <input type="text" name="n-control" id="n-control" placeholder="Numero de control"><br>
+                        <input type="text" name="num_control" id="n-control" placeholder="Numero de control"><br>
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" id="password" placeholder="Contraseña"><br>
-                        <input type="submit" value="Login" name="login_user">
+                        <input type="submit" value="Login">
                     </form>
                 </div>
             </div>
