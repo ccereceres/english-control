@@ -52,34 +52,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $hashed_password){
-                            // Password is correct, so start a new session
+                            // Contraseña es correcta, iniciar nueva sesion
                             session_start();
-                            // Store data in session variables
+                            // Guardar informacion en variables de sesion
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;                            
                             
-                            // Redirect user to welcome page
+                            // Redirigir a la pagina
                             header("location: welcome.php");
                         } else{
-                            // Password is not valid, display a generic error message
+                            // Contraseña no es valida
                             $login_err = "Invalid username or password.";
                         }
                     }
                 } else{
-                    // Username doesn't exist, display a generic error message
+                    // Numero de control no existe
                     $login_err = "Invalid username or password.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
-            // Close statement
+            // Cerrar declaracion
             mysqli_stmt_close($stmt);
         }
     }
     
-    // Close connection
+    // cerrar conexion
     mysqli_close($link);
 }
 ?>
