@@ -1,3 +1,7 @@
+<!--TO DO
+    *Cambiar echo a variables de sesion
+    *Quitar mensajes de debug
+-->
 <?php
 //BORRAR ESTO
 session_start();
