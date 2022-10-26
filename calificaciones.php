@@ -25,7 +25,7 @@ include_once "inc/db.php";
             echo "STORE";
             // Comprobar si el usuario existe, si existe comprobar contraseña
             echo mysqli_stmt_num_rows($stmt);
-            if(mysqli_stmt_num_rows($stmt) >= 1){                
+            if(mysqli_stmt_num_rows($stmt) == 1){                
                 // Enlazar variables de resultados
                 echo "NUM_ROWS";
                 mysqli_stmt_bind_result($stmt, $id, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5);
