@@ -4,7 +4,7 @@ session_start();
 
 //Comprobar si el usuario tiene sesion iniciada
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-    header('location: alumnos.php');
+    header('location: panel.php');
     exit;
 }
 //Si el usuario no tiene la sesion iniciada
@@ -33,12 +33,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validar credenciales
     if(empty($num_control_err) && empty($password_err)){
         // Preparar la consulta a la base de datos con name como login
-        $sql = "SELECT id, name, password FROM alumnos WHERE name = ?";
+        $sql = "SELECT id, nombres, password FROM alumnos WHERE num_control = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Enlaza la variable $num_control como parametro
             mysqli_stmt_bind_param($stmt, "s", $param_num_control);
-            
             // Establecer los parametros
             $param_num_control = $num_control;
             
@@ -49,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Comprobar si el usuario existe, si existe comprobar contraseña
                 if(mysqli_stmt_num_rows($stmt) == 1){                
                     // Enlazar variables de resultados
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $name, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $hashed_password){
                             // Contraseña es correcta, iniciar nueva sesion
@@ -57,18 +56,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Guardar informacion en variables de sesion
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["name"] = $name;                            
                             
                             // Redirigir a la pagina
-                            header("location: welcome.php");
+                            header("location: ../panel.php");
                         } else{
                             // Contraseña no es valida
-                            $login_err = "Invalid username or password.";
+                            $_SESSION["err_msg"] = "Contraseña incorrecta";
+                            header("location: ../login.php");
                         }
                     }
                 } else{
                     // Numero de control no existe
-                    $login_err = "Invalid username or password.";
+                    $_SESSION["err_msg"] = "Numero de control no existe";
+                    header("location: ../login.php");
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -77,6 +78,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Cerrar declaracion
             mysqli_stmt_close($stmt);
         }
+    } else {
+        $_SESSION["err_msg"] = "Matricula o Contraseña vacios";
+        header("location: ../login.php");
     }
     
     // cerrar conexion
