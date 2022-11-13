@@ -42,7 +42,7 @@
                                         </div>
                                         <?php
                                         if(isset($_SESSION['err_msg'])){ ?>
-                                            <div class="alert alert-danger" role="alert">
+                                            <div class="alert alert-danger text-center" role="alert">
                                                 <?php echo $_SESSION['err_msg'] ?>
                                             </div>
                                             <?php
