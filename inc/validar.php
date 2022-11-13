@@ -48,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Comprobar si el usuario existe, si existe comprobar contraseña
                 if(mysqli_stmt_num_rows($stmt) == 1){                
                     // Enlazar variables de resultados
-                    mysqli_stmt_bind_result($stmt, $id, $name, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $names, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $hashed_password){
                             // Contraseña es correcta, iniciar nueva sesion
@@ -56,7 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Guardar informacion en variables de sesion
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["name"] = $name;                            
+                            $_SESSION["names"] = $names;                            
                             
                             // Redirigir a la pagina
                             header("location: ../panel.php");
