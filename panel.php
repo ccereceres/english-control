@@ -34,16 +34,20 @@
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">Registro</div>
                                 <a class="nav-link" href="panel.php">
+                                    <div class="sb-nav-link-icon"><i class="bi bi-journal-plus"></i></div>
                                     Demanda de materias
                                 </a>
                                 <a class="nav-link" href="panel.php">
+                                    <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                                     Alta de materias
                                 </a>
                                 <div class="sb-sidenav-menu-heading">Calificaciones</div>
                                 <a class="nav-link" href="panel.php">
+                                    <div class="sb-nav-link-icon"><i class="bi bi-journal-minus"></i></div>
                                     Parciales
                                 </a>
                                 <a class="nav-link" href="panel.php">
+                                    <div class="sb-nav-link-icon"><i class="bi bi-journal-text"></i></div>
                                     Kardex
                                 </a>
                             </div>
@@ -51,7 +55,11 @@
                         <div class="sb-sidenav-footer">
                             <div class="small">¡Hola!</div>
                             <?php
-                                echo $_SESSION["names"];
+                                $string = $_SESSION["names"];
+                                $name = explode(" ", $string);
+                                unset($name[1]);
+                                $name = implode(" ", $name);
+                                echo $name . " " . $_SESSION["apellido_p"];
                             ?>
                         </div>
                     </nav>

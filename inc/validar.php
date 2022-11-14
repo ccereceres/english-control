@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validar credenciales
     if(empty($num_control_err) && empty($password_err)){
         // Preparar la consulta a la base de datos con name como login
-        $sql = "SELECT id, nombres, password FROM alumnos WHERE num_control = ?";
+        $sql = "SELECT id, nombres, apellido_p, apellido_m, num_control, password FROM alumnos WHERE num_control = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Enlaza la variable $num_control como parametro
@@ -48,15 +48,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Comprobar si el usuario existe, si existe comprobar contraseña
                 if(mysqli_stmt_num_rows($stmt) == 1){                
                     // Enlazar variables de resultados
-                    mysqli_stmt_bind_result($stmt, $id, $names, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $names, $apellido_p, $apellido_m, $num_control_db, $password_db);
                     if(mysqli_stmt_fetch($stmt)){
-                        if($password == $hashed_password){
+                        if($password == $password_db){
                             // Contraseña es correcta, iniciar nueva sesion
                             session_start();
                             // Guardar informacion en variables de sesion
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["names"] = $names;                            
+                            $_SESSION["names"] = $names;   
+                            $_SESSION["apellido_p"] = $apellido_p;
+                            $_SESSION["apellido_m"] = $apellido_m;
+                            $_SESSION["num_control_db"] = $num_control_db;                    
                             
                             // Redirigir a la pagina
                             header("location: ../panel.php");
