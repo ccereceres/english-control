@@ -1,9 +1,9 @@
 <?php
     session_start();
     // Si el usuario tiene la sesión iniciada
-    if(isset($_SESSION['matricula'])){
-        // Rediregir a panel.php
-        header("Location: panel.php");
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+        header('location: panel.php');
+        exit;
     } else { ?>
     <!DOCTYPE html>
     <html lang="en">

@@ -4,7 +4,7 @@ session_start();
 
 //Comprobar si el usuario tiene sesion iniciada
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-    header('location: panel.php');
+    header('location: ../panel.php');
     exit;
 }
 //Si el usuario no tiene la sesion iniciada
