@@ -4,11 +4,11 @@
     } catch (PDOException $exception) {
         die($exception->getMessage());
     }
-    $sql = "SELECT nombres, apellido_p, num_control FROM alumnos";
+    $sql = "SELECT nombres, apellido_p, num_control, id FROM alumnos";
     $st = $conn
         ->query($sql);
     if ($st) {
-        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nombres, $apellido_p, $num_control) => [$nombres, $apellido_p, $num_control] );
+        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nombres, $apellido_p, $num_control, $id) => [$nombres, $apellido_p, $num_control, $id] );
         echo json_encode([
             'data' => $rs,
         ]);

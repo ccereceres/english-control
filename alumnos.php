@@ -15,7 +15,7 @@
         <body class="sb-nav-fixed">
             <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
                 <!-- Navbar Brand-->
-                <a class="navbar-brand ps-3" href="panel.php">English Control</a>
+                <a class="navbar-brand ps-3" href="admin_panel.php">English Control</a>
                 <!-- Sidebar Toggle-->
                 <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="bi bi-list" style="font-size: 1.5rem;"></i></i></button>
                 <!-- Navbar-->
@@ -69,12 +69,13 @@
                     <main>
                         <div class="container-fluid px-4">
                             <div class="card-body">
-                            <table id="alumnos" class="table table-striped" style="width: 100%">
+                            <table id="alumnos" class="table table-striped compact" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th>Nombres</th>
                                         <th>Apellido Paterno</th>
                                         <th>Matricula</th>
+                                        <th>Acción</th>
                                     </tr>
                                 </thead>
 
