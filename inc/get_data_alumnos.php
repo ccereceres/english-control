@@ -8,7 +8,7 @@
     $st = $conn
         ->query($sql);
     if ($st) {
-        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nombres, $apellido_p, $num_control, $id) => [$nombres, $apellido_p, $num_control, $id] );
+        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nombres, $apellido_p, $num_control, $id) => [$nombres, $apellido_p, $num_control, "<a href=panel.php?". $id .">Borrar</a>"] );
         echo json_encode([
             'data' => $rs,
         ]);
