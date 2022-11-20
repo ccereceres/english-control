@@ -33,7 +33,7 @@
                         <div class="sb-sidenav-menu">
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">Calificaciones</div>
-                                <a class="nav-link" href="modificar_calificacion.php">
+                                <a class="nav-link" href="cursos.php">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-plus"></i></div>
                                     Modificar Calificaciones
                                 </a>

@@ -34,11 +34,11 @@
                         <div class="sb-sidenav-menu">
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">Calificaciones</div>
-                                <a class="nav-link" href="docentes.php">
+                                <a class="nav-link" href="cursos.php">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-plus"></i></div>
                                     Modificar Calificaciones
                                 </a>
-                                <a class="nav-link" href="docentes.php">
+                                <a class="nav-link" href="cursos.php">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                                     Confirmar Calificaciones
                                 </a>
@@ -79,13 +79,16 @@
                                         <th>Profesor</th>
                                     </tr>
                                 </thead>
-
                             </table>
+                            </div>
                         </div>
                     </main>
                     
                 </div>
             </div>
+            <script type="application/javascript">
+                let prof_id = <?php echo $_SESSION['id']?>
+            </script>
             <script src="tpl/js/scriptsPanel.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
                 integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
@@ -95,12 +98,14 @@
 			    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
 			    crossorigin="anonymous"></script>
             <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+            <script src="//cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+            <script src="//cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
             <script src="tpl/js/tablaCursos.js"></script>
         </body>
         </html>
     <?php
     } else {
-        header("location: login.php");
+        header("location: login_docente.php");
         $_SESSION['err_msg'] = "Acceso denegado. Inicia sesión";
     }
 ?>
