@@ -6,7 +6,7 @@
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-        $sql = "SELECT * FROM curso WHERE profesor_id = 1";
+        $sql = "SELECT * FROM curso WHERE profesor_id = $id";
         $st = $conn
             ->query($sql);
         if ($st) {
