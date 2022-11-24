@@ -11,7 +11,7 @@
             $st = $conn
                 ->query($sql);
             if ($st) {
-                $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nivel_curso, $hora, $dias, $idCurso_db) => [$nivel_curso, $hora, $dias, "<a href=modificar.php?curso=". $idCurso_db .">modificar</a>"]);
+                $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nivel_curso, $hora, $dias, $idCurso_db) => [$nivel_curso, $hora, $dias, "<a href=alumnos.php?curso=". $idCurso_db . "&accion=modificar" .">modificar</a>"]);
                 echo json_encode([
                     'data' => $rs,
                 ]);
@@ -29,7 +29,7 @@
             $st = $conn
                 ->query($sql);
             if ($st) {
-                $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nivel_curso, $hora, $dias, $idCurso_db) => [$nivel_curso, $hora, $dias, "<a href=confirmar.php?curso=". $idCurso_db .">Confirmar</a>"]);
+                $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($nivel_curso, $hora, $dias, $idCurso_db) => [$nivel_curso, $hora, $dias, "<a href=alumnos.php?curso=". $idCurso_db . "&accion=confirmar" .">Confirmar</a>"]);
                 echo json_encode([
                     'data' => $rs,
                 ]);

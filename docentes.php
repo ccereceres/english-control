@@ -33,11 +33,11 @@
                         <div class="sb-sidenav-menu">
                             <div class="nav">
                                 <div class="sb-sidenav-menu-heading">Calificaciones</div>
-                                <a class="nav-link" href="cursos.php">
+                                <a class="nav-link" href="cursos.php?accion=modificar">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-plus"></i></div>
                                     Modificar Calificaciones
                                 </a>
-                                <a class="nav-link" href="docentes.php">
+                                <a class="nav-link" href="cursos.php?accion=confirmar">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                                     Confirmar Calificaciones
                                 </a>
@@ -90,7 +90,7 @@
         </html>
     <?php
     } else {
-        header("location: login.php");
+        header("location: login_docente.php");
         $_SESSION['err_msg'] = "Acceso denegado. Inicia sesión";
     }
 ?>

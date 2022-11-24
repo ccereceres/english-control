@@ -1,14 +1,19 @@
-if(accion == "modificar"){
+if(accion === "modificar"){
     $(document).ready( function () {
         $('#cursos').DataTable({
             ajax: 'inc/get_data_cursos.php?id=' + prof_id + '&accion=modificar',
             dom: 'Blfrtip',
             buttons: [
-                'print'
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [0, 1, 2]
+                    }
+                }
             ]
         });
     } );
-} else if (accion == "confirmar"){
+} else if (accion === "confirmar"){
     $(document).ready( function () {
         $('#cursos').DataTable({
             ajax: 'inc/get_data_cursos.php?id=' + prof_id + "&accion=confirmar",
@@ -20,7 +25,6 @@ if(accion == "modificar"){
                         columns: [0, 1, 2]
                     }
                 }
-
             ]
         });
     } );

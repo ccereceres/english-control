@@ -2,7 +2,7 @@
 session_start();
 // Si el usuario tiene la sesión iniciada
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
-    header('location: panel.php');
+    header('location: docentes.php');
     exit;
 } else { ?>
     <!DOCTYPE html>

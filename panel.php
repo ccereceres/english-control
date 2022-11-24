@@ -42,7 +42,7 @@
                                     Alta de materias
                                 </a>
                                 <div class="sb-sidenav-menu-heading">Calificaciones</div>
-                                <a class="nav-link" href="panel.php">
+                                <a class="nav-link" href="calificaciones.php">
                                     <div class="sb-nav-link-icon"><i class="bi bi-journal-minus"></i></div>
                                     Parciales
                                 </a>

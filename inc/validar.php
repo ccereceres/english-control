@@ -34,7 +34,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($num_control_err) && empty($password_err)){
         // Preparar la consulta a la base de datos con name como login
         $sql = "SELECT id, nombres, apellido_p, apellido_m, num_control, password FROM alumnos WHERE num_control = ?";
-        
+
+        /** @var mysqli $link */
         if($stmt = mysqli_prepare($link, $sql)){
             // Enlaza la variable $num_control como parametro
             mysqli_stmt_bind_param($stmt, "s", $param_num_control);
