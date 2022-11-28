@@ -7,7 +7,7 @@ if(accion == "modificar"){
                 {
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
+                        columns: [0, 1, 2, 3, 4, 5]
                     }
                 }
             ]

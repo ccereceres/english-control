@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validar credenciales
     if(empty($num_control_err) && empty($password_err)){
         // Preparar la consulta a la base de datos con numero_identificación como login
-        $sql = "SELECT id, nombres, apellido_p, apellido_m, numero_identificacion, password FROM profesor WHERE numero_identificacion = ?";
+        $sql = "SELECT id, nombres, apellido_p, apellido_m, numero_identificacion, password, tipo FROM profesor WHERE numero_identificacion = ?";
 
         /** @var mysqli $link */
         if($stmt = mysqli_prepare($link, $sql)){
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Comprobar si el usuario existe, si existe comprobar contraseña
                 if(mysqli_stmt_num_rows($stmt) == 1){                
                     // Enlazar variables de resultados
-                    mysqli_stmt_bind_result($stmt, $id, $names, $apellido_p, $apellido_m, $numero_identificacion_db, $password_db);
+                    mysqli_stmt_bind_result($stmt, $id, $names, $apellido_p, $apellido_m, $numero_identificacion_db, $password_db, $tipo);
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $password_db){
                             // Contraseña es correcta, iniciar nueva sesion
@@ -61,6 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["apellido_p"] = $apellido_p;
                             $_SESSION["apellido_m"] = $apellido_m;
                             $_SESSION["numero_identificacion_db"] = $numero_identificacion_db;
+                            $_SESSION["tipo_usuario"] = $tipo;
                             
                             // Redirigir a la pagina despues de login exitoso
                             header("location: ../docentes.php");

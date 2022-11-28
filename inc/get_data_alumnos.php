@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
     $idCurso = $_GET['idCurso'];
     if ($_GET['accion'] == 'ver') {
