@@ -17,13 +17,28 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
                                     <th>Apellido Materno</th>
                                     <th>Núm Control</th>
                                     <th>Carrera</th>
-                                    <?php } else {?>
+                                    <?php } elseif ($_GET['accion'] === "modificar") {?>
                                     <th>Núm Control</th>
+                                    <th>Nombres</th>
+                                    <th>Apellido P</th>
+                                    <th>Apellido M</th>
                                     <th>Calficación 1</th>
                                     <th>Calficación 2</th>
                                     <th>Calficación 3</th>
                                     <th>Calficación 4</th>
                                     <th>Calficación 5</th>
+                                    <th>Acción</th>
+                                    <?php } else { ?>
+                                    <th>Núm Control</th>
+                                    <th>Nombres</th>
+                                    <th>Apellido P</th>
+                                    <th>Apellido M</th>
+                                    <th>Calficación 1</th>
+                                    <th>Calficación 2</th>
+                                    <th>Calficación 3</th>
+                                    <th>Calficación 4</th>
+                                    <th>Calficación 5</th>
+                                    <th>Estado</th>
                                     <th>Acción</th>
                                     <?php }?>
                                 </tr>

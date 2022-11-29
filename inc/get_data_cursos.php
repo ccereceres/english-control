@@ -2,6 +2,7 @@
 session_start();
 if ($_SESSION["tipo_usuario"] === 2) {
     if (isset($_GET['id']) && isset($_GET['accion'])) {
+        // ID del profesor para sacar todos sus cursos
         $id = $_GET['id'];
         if ($_GET['accion'] == "modificar") {
             try {
@@ -9,7 +10,7 @@ if ($_SESSION["tipo_usuario"] === 2) {
             } catch (PDOException $exception) {
                 die($exception->getMessage());
             }
-            $sql = "SELECT nivel_curso, hora, dias, curso.id FROM curso JOIN dias d on curso.dias_id = d.id JOIN nivel n on curso.nivel_id = n.id WHERE profesor_id = $id";
+            $sql = "SELECT nivel_curso, hora, dias, curso.id FROM curso JOIN dias d on curso.dias_id = d.id JOIN hora h on h.id = curso.hora_id JOIN nivel n on n.id = curso.nivel_id WHERE profesor_id = $id";
             $st = $conn
                 ->query($sql);
             if ($st) {
@@ -27,7 +28,7 @@ if ($_SESSION["tipo_usuario"] === 2) {
             } catch (PDOException $exception) {
                 die($exception->getMessage());
             }
-            $sql = "SELECT nivel_curso, hora, dias, curso.id FROM curso JOIN dias d on curso.dias_id = d.id JOIN nivel n on curso.nivel_id = n.id WHERE profesor_id = $id";
+            $sql = "SELECT nivel_curso, hora, dias, curso.id FROM curso JOIN dias d on curso.dias_id = d.id JOIN hora h on h.id = curso.hora_id JOIN nivel n on n.id = curso.nivel_id WHERE profesor_id = $id";
             $st = $conn
                 ->query($sql);
             if ($st) {

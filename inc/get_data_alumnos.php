@@ -26,11 +26,11 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-        $sql = "SELECT num_control, calif_1, calif_2, calif_3, calif_4, calif_5, calificaciones_id FROM alumnos JOIN cursando c on alumnos.id = c.alumnos_id join curso c2 on c.curso_id = c2.id join carrera c3 on alumnos.carrera_id = c3.id join calificaciones c4 on c.calificaciones_id = c4.id where c2.id = $idCurso";
+        $sql = "SELECT num_control, nombres , apellido_p , apellido_m , calif_1, calif_2, calif_3, calif_4, calif_5 ,calificaciones_id FROM alumnos JOIN cursando c on alumnos.id = c.alumnos_id join curso c2 on c.curso_id = c2.id join carrera c3 on alumnos.carrera_id = c3.id join calificaciones c4 on c.calificaciones_id = c4.id where c2.id = $idCurso";
         $st = $conn
             ->query($sql);
         if ($st) {
-            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $calificaciones_id) => [$num_control, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, "<a href=modificar_calificacion.php?idCalificaciones=". $calificaciones_id . "&accion=modificar" .">Modificar Calificación</a>"]);
+            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5 , $calificaciones_id) => [$num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, "<a href=modificar_calificacion.php?idCalificaciones=". $calificaciones_id . "&accion=modificar" .">Modificar Calificación</a>"]);
             echo json_encode([
                 'data' => $rs,
             ]);
@@ -44,11 +44,11 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-        $sql = "SELECT num_control, calif_1, calif_2, calif_3, calif_4, calif_5, calificaciones_id FROM alumnos JOIN cursando c on alumnos.id = c.alumnos_id join curso c2 on c.curso_id = c2.id join carrera c3 on alumnos.carrera_id = c3.id join calificaciones c4 on c.calificaciones_id = c4.id where c2.id = $idCurso";
+        $sql = "SELECT num_control, nombres , apellido_p , apellido_m , calif_1, calif_2, calif_3, calif_4, calif_5, estado ,calificaciones_id FROM alumnos JOIN cursando c on alumnos.id = c.alumnos_id join curso c2 on c.curso_id = c2.id join carrera c3 on alumnos.carrera_id = c3.id join calificaciones c4 on c.calificaciones_id = c4.id where c2.id = $idCurso";
         $st = $conn
             ->query($sql);
         if ($st) {
-            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $calificaciones_id) => [$num_control, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, "<a href=alumnos.php?idCalificacion=". $calificaciones_id . "&accion=modificar" .">Confirmar Calificación</a>"]);
+            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5 , $estado , $calificaciones_id) => [$num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $estado, "<a href=alumnos.php?idCalificacion=". $calificaciones_id . "&accion=confirmar" .">Confirmar Calificación</a>"]);
             echo json_encode([
                 'data' => $rs,
             ]);
