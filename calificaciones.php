@@ -38,45 +38,45 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
     ?>
 
                         <div class="row">
-                            <div class="card col-auto p-3 m-3">
+                            <div class="card col-auto p-2 m-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Calificación</h5>
+                                    <h5 class="card-title">Calificación de</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Unidad 1</h6>
                                     <p class="card-text">
                                         <?php echo $calif_1?>
                                     </p>
                                 </div>
                             </div>
-                            <div class="card col-auto p-3 m-3">
+                            <div class="card col-auto p-2 m-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Calificación</h5>
+                                    <h5 class="card-title">Calificación de</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Unidad 2</h6>
                                     <p class="card-text">
                                         <?php echo $calif_2?>
                                     </p>
                                 </div>
                             </div>
-                            <div class="card col-auto p-3 m-3">
+                            <div class="card col-auto p-2 m-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Calificación</h5>
+                                    <h5 class="card-title">Calificación de</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Unidad 3</h6>
                                     <p class="card-text">
                                         <?php echo $calif_3?>
                                     </p>
                                 </div>
                             </div>
-                            <div class="card col-auto p-3 m-3">
+                            <div class="card col-auto p-2 m-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Calificación</h5>
+                                    <h5 class="card-title">Calificación de</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Unidad 4</h6>
                                     <p class="card-text">
                                         <?php echo $calif_4?>
                                     </p>
                                 </div>
                             </div>
-                            <div class="card col-auto p-3 m-3">
+                            <div class="card col-auto p-2 m-2">
                                 <div class="card-body">
-                                    <h5 class="card-title">Calificación</h5>
+                                    <h5 class="card-title">Calificación de</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Unidad 5</h6>
                                     <p class="card-text">
                                         <?php echo $calif_5?>

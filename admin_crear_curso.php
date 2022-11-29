@@ -20,8 +20,19 @@ if ($_SESSION['tipo_usuario'] === 3){
 
     // Crea el curso cuando el usuario de click en el boton
     if (isset($_POST['crear_curso'])){
-        $sqlInsert = "INSERT INTO `curso` (`id`, `dias_id`, `profesor_id`, `nivel_id`, `hora_id`) VALUES (NULL, '2', '1', '3', '2')";
-        echo "awa";
+        // Variables para insertar datos
+        $dias = mysqli_real_escape_string($link, $_POST['sel-dia']);
+        $profesor_id = mysqli_real_escape_string($link, $_POST['sel-profesor']);
+        $nivel_id = mysqli_real_escape_string($link, $_POST['sel-nivel']);
+        $hora_id = mysqli_real_escape_string($link, $_POST['sel-hora']);
+        $sqlInsert = "INSERT INTO `curso` (`id`, `dias_id`, `profesor_id`, `nivel_id`, `hora_id`) VALUES (NULL, '$dias', '$profesor_id', '$nivel_id', '$hora_id')";
+        if (mysqli_query($link, $sqlInsert)){
+            $_SESSION['msg_sql'] = "Curso creado exitosamente";
+        } else {
+            $_SESSION['msg_sql'] = "Error al crear el curso. Falló consulta INSERT";
+        }
+
+
     }
     include 'inc/headerAdmin.php'; ?>
     <!-- Formulario crear curso -->
@@ -29,7 +40,7 @@ if ($_SESSION['tipo_usuario'] === 3){
         <!-- Formulario Elegir Profesor -->
         <div class="form-group my-2">
             <label for="l-profesor">Profesor</label>
-            <select name="" id="l-profesor" class="form-control">
+            <select name="sel-profesor" id="l-profesor" class="form-control">
                 <?php while ($profesor = mysqli_fetch_array($queryProfesor, MYSQLI_ASSOC)):; ?>
                 <option value="<?php echo $profesor["id"];?>"><?php echo $profesor["nombres"] ?></option>
                 <?php endwhile; ?>
@@ -38,7 +49,7 @@ if ($_SESSION['tipo_usuario'] === 3){
         <!-- Formulario Elegir Nivel -->
         <div class="form-group my-2">
             <label for="l-nivel">Nivel de ingles</label>
-            <select name="" id="l-nivel" class="form-control">
+            <select name="sel-nivel" id="l-nivel" class="form-control">
                 <?php while ($nivel = mysqli_fetch_array($queryNivel, MYSQLI_ASSOC)):; ?>
                     <option value="<?php echo $nivel["id"];?>"><?php echo $nivel["nivel_curso"] ?></option>
                 <?php endwhile; ?>
@@ -47,7 +58,7 @@ if ($_SESSION['tipo_usuario'] === 3){
         <!-- Formulario Elegir Dia -->
         <div class="form-group my-2">
             <label for="l-dia">Dias</label>
-            <select name="" id="l-dia" class="form-control">
+            <select name="sel-dia" id="l-dia" class="form-control">
                 <?php while ($dia = mysqli_fetch_array($queryDia, MYSQLI_ASSOC)):; ?>
                     <option value="<?php echo $dia["id"];?>"><?php echo $dia["dias"] ?></option>
                 <?php endwhile; ?>
@@ -56,7 +67,7 @@ if ($_SESSION['tipo_usuario'] === 3){
         <!-- Formulario Elegir Hora -->
         <div class="form-group my-2">
             <label for="l-hora">Hora</label>
-            <select name="" id="l-hora" class="form-control">
+            <select name="sel-hora" id="l-hora" class="form-control">
                 <?php while ($hora = mysqli_fetch_array($queryHora, MYSQLI_ASSOC)):; ?>
                     <option value="<?php echo $hora["id"];?>"><?php echo $hora["hora"] ?></option>
                 <?php endwhile; ?>
@@ -67,6 +78,13 @@ if ($_SESSION['tipo_usuario'] === 3){
             <input class="btn btn-primary" type="submit" value="Crear" name="crear_curso">
         </div>
     </form>
+    <!-- Alerta -->
+    <?php if (isset($_SESSION['msg_sql'])){ ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['msg_sql'];
+        unset($_SESSION['msg_sql']) ?>
+    </div>
+    <?php } ?>
 <?php
     include 'inc/footerBootstrapNormal.php';
 }

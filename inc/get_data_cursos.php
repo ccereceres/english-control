@@ -54,11 +54,11 @@ if ($_SESSION["tipo_usuario"] === 2) {
     } catch (PDOException $exception) {
         die($exception->getMessage());
     }
-    $sql = "SELECT numero_identificacion, nombres, apellido_p, apellido_m, nivel_curso, dias FROM curso JOIN dias d on curso.dias_id = d.id JOIN nivel n on curso.nivel_id = n.id JOIN profesor p on curso.profesor_id = p.id";
+    $sql = "SELECT numero_identificacion, nombres, apellido_p, apellido_m, nivel_curso, dias, hora FROM curso JOIN dias d on curso.dias_id = d.id JOIN nivel n on curso.nivel_id = n.id JOIN profesor p on curso.profesor_id = p.id JOIN hora h on curso.hora_id = h.id";
     $st = $conn
         ->query($sql);
     if ($st) {
-        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($numero_identificacion, $nombres, $apellido_p, $apellido_m, $nivel_curso, $dias) => [$numero_identificacion, $nombres, $apellido_p, $apellido_m, $nivel_curso, $dias]);
+        $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($numero_identificacion, $nombres, $apellido_p, $apellido_m, $nivel_curso, $dias, $hora) => [$numero_identificacion, $nombres, $apellido_p, $apellido_m, $nivel_curso, $dias, $hora]);
         echo json_encode([
             'data' => $rs,
         ]);

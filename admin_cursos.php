@@ -13,6 +13,7 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                                             <th>Apellido M</th>
                                             <th>Nivel Curso</th>
                                             <th>Dias</th>
+                                            <th>Hora</th>
                                         </tr>
                                     </thead>
                                 </table>
