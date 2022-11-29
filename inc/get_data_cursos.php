@@ -2,6 +2,7 @@
 session_start();
 if ($_SESSION["tipo_usuario"] === 2) {
     if (isset($_GET['id']) && isset($_GET['accion'])) {
+        // TODO Comparar variable de sesión para el obtener los datos del curso de solo el profesor
         // ID del profesor para sacar todos sus cursos
         $id = $_GET['id'];
         if ($_GET['accion'] == "modificar") {
