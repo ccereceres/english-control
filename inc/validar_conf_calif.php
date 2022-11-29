@@ -6,7 +6,7 @@ if (isset($_GET['idCalificacion'])){
     // Guarda el valor de la variable GET en una variable local
     // Valor de la variable es el id de las calificaciones
     $idCalif = $_GET['idCalificacion'];
-    $sql = "UPDATE calificaciones SET estado = '2' WHERE id = $idCalif";
+    $sql = "UPDATE calificaciones SET estado_id = '2' WHERE id = $idCalif";
     $sqlIdCurso = "select curso_id from calificaciones join cursando c on calificaciones.id = c.calificaciones_id WHERE calificaciones.id = $idCalif";
     if (mysqli_query($link, $sql)) {
             $query = mysqli_query($link, $sqlIdCurso);

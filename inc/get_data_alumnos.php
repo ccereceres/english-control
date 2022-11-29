@@ -50,11 +50,13 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
-        $sql = "SELECT num_control, a.nombres, a.apellido_p, a.apellido_m, calif_1, calif_2, calif_3, calif_4, calif_5, estado, c3.id 
-                FROM profesor JOIN curso c on profesor.id = c.profesor_id 
-                    JOIN cursando c2 on c.id = c2.curso_id 
-                    JOIN alumnos a on a.id = c2.alumnos_id 
-                    JOIN calificaciones c3 on c3.id = c2.calificaciones_id 
+        $sql = "SELECT num_control, a.nombres, a.apellido_p, a.apellido_m, calif_1, calif_2, calif_3, calif_4, calif_5, nombre, c3.id
+                FROM profesor 
+                    JOIN curso c on profesor.id = c.profesor_id
+                    JOIN cursando c2 on c.id = c2.curso_id
+                    JOIN alumnos a on a.id = c2.alumnos_id
+                    JOIN calificaciones c3 on c3.id = c2.calificaciones_id
+                    JOIN estado e on c3.estado_id = e.id
                 WHERE profesor.id = $idProfesor AND c.id = $idCurso";
         $st = $conn
             ->query($sql);

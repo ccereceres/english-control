@@ -87,4 +87,6 @@ if ($_SESSION['tipo_usuario'] === 3){
     <?php } ?>
 <?php
     include 'inc/footerBootstrapNormal.php';
+} else {
+    header('location: index.php');
 }
