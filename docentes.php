@@ -51,6 +51,24 @@
         } else if ($_SESSION['tipo_usuario'] === 3) {
             include 'inc/headerAdmin.php'; ?>
         ADMIIIIIIIIIIIIIN :3
+            <?php
+            if(isset($_SESSION['err_msg'])){ ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    <?php echo $_SESSION['err_msg'] ?>
+                </div>
+                <?php
+                unset($_SESSION['err_msg']);
+            }
+            ?>
+            <?php
+            if(isset($_SESSION['msg'])){ ?>
+                <div class="alert alert-success text-center" role="alert">
+                    <?php echo $_SESSION['msg'] ?>
+                </div>
+                <?php
+                unset($_SESSION['msg']);
+            }
+            ?>
     <?php
             include 'inc/footerBootstrapNormal.php';
         } else {

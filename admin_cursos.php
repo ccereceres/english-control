@@ -14,10 +14,29 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                                             <th>Nivel Curso</th>
                                             <th>Dias</th>
                                             <th>Hora</th>
+                                            <th>Acción</th>
                                         </tr>
                                     </thead>
                                 </table>
                                 </div>
+        <?php
+        if(isset($_SESSION['err_msg'])){ ?>
+            <div class="alert alert-danger text-center" role="alert">
+                <?php echo $_SESSION['err_msg'] ?>
+            </div>
+            <?php
+            unset($_SESSION['err_msg']);
+        }
+        ?>
+        <?php
+        if(isset($_SESSION['msg'])){ ?>
+            <div class="alert alert-success text-center" role="alert">
+                <?php echo $_SESSION['msg'] ?>
+            </div>
+            <?php
+            unset($_SESSION['msg']);
+        }
+        ?>
                             </div>
                         </main>
 
