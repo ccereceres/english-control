@@ -40,6 +40,15 @@
                 <div class="text-center">
                     Atención, las fechas para demandar el curso de inglés es del 28 de agosto al 9 de septiembre.
                 </div>
+                <?php
+                if(isset($_SESSION['err_msg'])){ ?>
+                    <div class="alert alert-danger text-center" role="alert">
+                        <?php echo $_SESSION['err_msg'] ?>
+                    </div>
+                    <?php
+                    unset($_SESSION['err_msg']);
+                }
+                ?>
             </div>
         </section>
    <?php

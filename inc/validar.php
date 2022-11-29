@@ -60,7 +60,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["names"] = $names;   
                             $_SESSION["apellido_p"] = $apellido_p;
                             $_SESSION["apellido_m"] = $apellido_m;
-                            $_SESSION["num_control_db"] = $num_control_db;                    
+                            $_SESSION["num_control_db"] = $num_control_db;
+                            $_SESSION["tipo_usuario"] = 1;
                             
                             // Redirigir a la pagina
                             header("location: ../panel.php");

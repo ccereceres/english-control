@@ -59,7 +59,8 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         $st = $conn
             ->query($sql);
         if ($st) {
-            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5 , $estado , $calificaciones_id) => [$num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $estado, "<a href=inc/validar_conf_calif.php?idCalificacion=". $calificaciones_id .">Confirmar Calificación</a>"]);
+            $rs = $st->fetchAll(PDO::FETCH_FUNC, fn($num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5 , $estado , $calificaciones_id)
+            => [$num_control, $nombres , $apellido_p , $apellido_m , $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $estado, "<a href=inc/validar_conf_calif.php?idCalificacion=". $calificaciones_id .">Confirmar Calificación</a>"]);
             echo json_encode([
                 'data' => $rs,
             ]);

@@ -45,6 +45,15 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
                                 </thead>
                             </table>
                         </div>
+        <?php
+        if(isset($_SESSION['msg'])){ ?>
+            <div class="alert alert-success text-center" role="alert">
+                <?php echo $_SESSION['msg'] ?>
+            </div>
+            <?php
+            unset($_SESSION['msg']);
+        }
+        ?>
                     </div>
                 </main>
 

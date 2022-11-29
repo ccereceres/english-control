@@ -35,6 +35,15 @@
                     <div class="text-center">
                         Atención, las fechas para subir calificaciones acabarán el 6 de diciembre
                     </div>
+                    <?php
+                    if(isset($_SESSION['msg_err'])){ ?>
+                        <div class="alert alert-danger text-center" role="alert">
+                            <?php echo $_SESSION['msg_err'] ?>
+                        </div>
+                        <?php
+                        unset($_SESSION['msg_err']);
+                    }
+                    ?>
                 </div>
             </section>
         <?php

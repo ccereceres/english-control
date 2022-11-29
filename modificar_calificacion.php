@@ -5,11 +5,18 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     if (isset($_GET['idCalificaciones'])) {
         // Guardar el valor de la variable $_GET
         $id_calificaciones = $_GET['idCalificaciones'];
+        // Id del profesor
+        $idProfesor = $_SESSION['id'];
         // Incluir la base de datos
         include_once 'inc/db.php';
 
         // Preparar la consulta a la base de datos con variable $_GET con id de las calificaciones
-        $sql = "SELECT calif_1, calif_2, calif_3, calif_4, calif_5 FROM calificaciones WHERE id = ?";
+        $sql = "SELECT calif_1, calif_2, calif_3, calif_4, calif_5, estado, num_control
+                FROM profesor JOIN curso c on profesor.id = c.profesor_id
+                    JOIN cursando c2 on c.id = c2.curso_id
+                    JOIN alumnos a on a.id = c2.alumnos_id
+                    JOIN calificaciones c3 on c3.id = c2.calificaciones_id
+                WHERE profesor.id = $idProfesor AND c3.id = ?";
         /** @var mysqli $link */
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Enlaza la variable $num_control como parametro
@@ -24,12 +31,16 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
                 // Comprobar si la calificacion existe
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Enlazar variables de resultados
-                    mysqli_stmt_bind_result($stmt, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5);
+                    mysqli_stmt_bind_result($stmt, $calif_1, $calif_2, $calif_3, $calif_4, $calif_5, $estado, $num_control);
                     mysqli_stmt_fetch($stmt);
-                    echo $calif_1;
+                    // Si el alumno tiene la calificación cerrada
+                    if ($estado === 2){
+                        $_SESSION['msg_err'] = "El alumno con matricula: " . $num_control . " tiene la calificacion confirmada";
+                        header('location: docentes.php');
+                    }
                 } else {
                     // Calificacion no existe
-                    $_SESSION["err_msg"] = "Numero de control no existe";
+                    $_SESSION["err_msg"] = "No tienes acceso a este usuario";
                     header("location: docentes.php");
                 }
             } else {
