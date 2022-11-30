@@ -1,9 +1,13 @@
 <?php
     session_start();
     // Si el usuario tiene la sesión iniciada
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && $_SESSION['tipo_usuario'] == 1){
         header('location: panel.php');
         exit;
+    } elseif ($_SESSION['tipo_usuario'] == 2) {
+        header('location: docentes.php');
+    } elseif ($_SESSION['tipo_usuario'] == 3) {
+        header('location: docentes.php');
     } else { ?>
     <!DOCTYPE html>
     <html lang="en">

@@ -31,11 +31,11 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Registro</div>
-                    <a class="nav-link" href="panel.php">
+                    <a class="nav-link" href="demanda.php">
                         <div class="sb-nav-link-icon"><i class="bi bi-journal-plus"></i></div>
                         Demanda de materias
                     </a>
-                    <a class="nav-link" href="panel.php">
+                    <a class="nav-link" href="alta.php">
                         <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                         Alta de materias
                     </a>

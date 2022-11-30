@@ -1,6 +1,7 @@
 <?php 
     session_start();
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+        if ($_SESSION['tipo_usuario'] == 1){
         include 'inc/header.php';?>
         <section class="page-section">
             <div class="container px-4 py-4 px-lg-5">
@@ -49,10 +50,22 @@
                     unset($_SESSION['err_msg']);
                 }
                 ?>
+                <?php
+                if(isset($_SESSION['msg'])){ ?>
+                    <div class="alert alert-success text-center" role="alert">
+                        <?php echo $_SESSION['msg'] ?>
+                    </div>
+                    <?php
+                    unset($_SESSION['msg']);
+                }
+                ?>
             </div>
         </section>
    <?php
         include 'inc/footerBootstrapNormal.php';
+        } else {
+            header('location: login.php');
+        }
     } else {
         header("location: login.php");
         $_SESSION['err_msg'] = "Acceso denegado. Inicia sesión";

@@ -39,10 +39,9 @@
                         <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                         Crear Cursos
                     </a>
-                    <div class="sb-sidenav-menu-heading">Asistencias</div>
-                    <a class="nav-link" href="docentes.php">
-                        <div class="sb-nav-link-icon"><i class="bi bi-journal-minus"></i></div>
-                        Cargar faltas
+                    <a class="nav-link" href="admin_cerrar_semestre.php">
+                        <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
+                        Cerrar Semestre
                     </a>
 
                 </div>
