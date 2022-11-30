@@ -9,27 +9,21 @@
                     <h2 class="text-center mt-0">Instituto Tecnológico de Parral</h2>
                     <hr class="divider" />
                     <div class="row gx-4 gx-lg-5">
-                        <div class="col-lg-4 col-md-6 text-center">
+                        <div class="col-lg-6 col-md-6 text-center">
                             <div class="mt-5">
                                 <div class="mb-2"><i class="bi bi-card-list fs-1 text-primary"></i></div>
                                 <h3 class="h4 mb-2">Modificar calificaciones</h3>
                                 <p class="text-muted mb-0">Modifica las calificaciones de los alumnos</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 text-center">
+                        <div class="col-lg-6 col-md-6 text-center">
                             <div class="mt-5">
                                 <div class="mb-2"><i class="bi bi-card-checklist fs-1 text-primary"></i></div>
                                 <h3 class="h4 mb-2">Confirmar calificaciones</h3>
                                 <p class="text-muted mb-0">Confirma las calificaciones de los alumnos</p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 text-center">
-                            <div class="mt-5">
-                                <div class="mb-2"><i class="bi bi-clipboard2-x fs-1 text-primary"></i></div>
-                                <h3 class="h4 mb-2">Cargar faltas</h3>
-                                <p class="text-muted mb-0">Carga las faltas de los alumnos</p>
-                            </div>
-                        </div>
+
                     </div>
                     <hr class="divider" />
                     <div class="text-center">

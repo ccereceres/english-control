@@ -42,7 +42,7 @@ if ($_SESSION['tipo_usuario'] === 3){
             <label for="l-profesor">Profesor</label>
             <select name="sel-profesor" id="l-profesor" class="form-control">
                 <?php while ($profesor = mysqli_fetch_array($queryProfesor, MYSQLI_ASSOC)):; ?>
-                <option value="<?php echo $profesor["id"];?>"><?php echo $profesor["nombres"] ?></option>
+                <option value="<?php echo $profesor["id"];?>"><?php echo $profesor["nombres"] . " " . $profesor["apellido_p"] . " " . $profesor["apellido_m"] ?></option>
                 <?php endwhile; ?>
             </select>
         </div>

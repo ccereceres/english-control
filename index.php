@@ -23,8 +23,7 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ms-auto my-2 my-lg-0">
                             <li class="nav-item"><a class="nav-link" href="login.php">Inicia Sesión</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">Acerca</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                            <li class="nav-item"><a class="nav-link" href="login_docente.php">Docentes</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,13 +33,13 @@
                 <div class="container px-4 px-lg-5 h-100">
                     <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                         <div class="col-lg-8 align-self-end">
-                            <h1 class="text-white font-weight-bold">Acerca del Instituto Tecnologico de Parral</h1>
+                            <h1 class="text-white font-weight-bold">Acerca del Instituto Tecnológico de Parral</h1>
                             <hr class="divider" />
                         </div>
                         <div class="col-lg-8 align-self-baseline">
-                            <p class="text-white-75 mb-5">El instituto de parral tiene la mision de formar profesionales de clase mundial, 
-                                con profundo sentido humano y conocimientos científicos y tecnológicos de vanguardia, 
-                                con principios y valores, capaces de contribuir a la transformación armónica de una 
+                            <p class="text-white-75 mb-5">El instituto de parral tiene la misión de formar profesionales de clase mundial,
+                                con profundo sentido humano y conocimientos científicos y tecnológicos de vanguardia,
+                                con principios y valores, capaces de contribuir a la transformación armónica de una
                                 sociedad más justa y más humana</p>
                             <a class="btn btn-primary btn-xl" href="login.php">Inicia Sesión</a>
                         </div>
