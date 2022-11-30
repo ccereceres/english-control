@@ -42,6 +42,10 @@
                         <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
                         Cerrar Semestre
                     </a>
+                    <a class="nav-link" href="admin_graficas.php">
+                        <div class="sb-nav-link-icon"><i class="bi bi-journal-arrow-up"></i></div>
+                        Ver datos
+                    </a>
 
                 </div>
             </div>

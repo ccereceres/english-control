@@ -50,7 +50,7 @@
         include 'inc/footerDocentesBootstrapNormal.php';
         } else if ($_SESSION['tipo_usuario'] === 3) {
             include 'inc/headerAdmin.php'; ?>
-        ADMIIIIIIIIIIIIIN :3
+        <h2>Panel De Administrador</h2>
             <?php
             if(isset($_SESSION['err_msg'])){ ?>
                 <div class="alert alert-danger text-center" role="alert">
