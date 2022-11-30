@@ -5,7 +5,7 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
         $accion = $_GET['accion'];
         include 'inc/headerDataTablesDocente.php';?>
 
-                        Mostrar curso. Al seleccionar dirigirse a la pagina modificar o confirmar $_GET con argumentos "id del curso" "Accion a realizar"
+
                         <div class="card-body">
                             <table id="alumnos" class="table table-striped compact" style="width: 100%">
                                 <thead>

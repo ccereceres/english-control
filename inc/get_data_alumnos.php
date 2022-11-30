@@ -5,7 +5,7 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
     $idProfesor = $_SESSION['id'];
     if ($_GET['accion'] == 'ver') {
         try {
-            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -23,7 +23,7 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         }
     } elseif ($_GET['accion'] == 'modificar') {
         try {
-            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -46,7 +46,7 @@ if(isset($_GET['idCurso']) && isset($_GET['accion'])) {
         }
     } elseif ($_GET['accion'] == 'confirmar') {
         try {
-            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }

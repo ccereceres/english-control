@@ -7,7 +7,7 @@ if ($_SESSION["tipo_usuario"] === 2) {
         $id = $_GET['id'];
         if ($_GET['accion'] == "modificar") {
             try {
-                $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+                $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
             } catch (PDOException $exception) {
                 die($exception->getMessage());
             }
@@ -25,7 +25,7 @@ if ($_SESSION["tipo_usuario"] === 2) {
             }
         } elseif ($_GET['accion'] == "confirmar") {
             try {
-                $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+                $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
             } catch (PDOException $exception) {
                 die($exception->getMessage());
             }
@@ -52,7 +52,7 @@ if ($_SESSION["tipo_usuario"] === 2) {
     // ADMIN
 } elseif ($_SESSION['tipo_usuario'] === 3){
     try {
-        $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+        $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
     } catch (PDOException $exception) {
         die($exception->getMessage());
     }

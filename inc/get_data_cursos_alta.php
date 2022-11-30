@@ -4,7 +4,7 @@ if ($_SESSION["tipo_usuario"] === 1) {
     if (isset($_GET['idNivel'])){
         $id_nivel = $_GET['idNivel'];
         try {
-            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+            $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }

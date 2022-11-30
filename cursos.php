@@ -4,7 +4,7 @@
         if(isset($_GET['accion']) && ($_GET['accion'] == 'modificar' || $_GET['accion'] == 'confirmar')){
             $accion = $_GET['accion'];
             include 'inc/headerDataTablesDocente.php';?>
-                                Mostrar curso. Al seleccionar dirigirse a la pagina modificar o confirmar $_GET con argumentos "id del curso" "Accion a realizar"
+
                                 <div class="card-body">
                                 <table id="cursos" class="table table-striped compact" style="width: 100%">
                                     <thead>

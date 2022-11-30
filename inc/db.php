@@ -1,8 +1,8 @@
 <?php
 //Credenciales de la base de datos
 const DB_SERVER = 'localhost';
-const DB_USERNAME = 'jahy';
-const DB_PASSWORD = 'H3nt4i-!#22';
+const DB_USERNAME = 'root';
+const DB_PASSWORD = '';
 const DB_NAME = 'english-control';
 
 //Intentar conectar a la base de datos

@@ -5,7 +5,7 @@ if ($_SESSION["tipo_usuario"] === 1) {
 // Obtiene el id del alumno guardado en la variable $_SESSION
 $idAlumno = $_SESSION["id"];
     try {
-        $conn = new PDO('mysql:host=localhost;dbname=english-control', 'jahy', 'H3nt4i-!#22');
+        $conn = new PDO('mysql:host=localhost;dbname=english-control', 'root', '');
     } catch (PDOException $exception) {
         die($exception->getMessage());
     }
